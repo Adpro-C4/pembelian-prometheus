@@ -1,0 +1,30 @@
+global:
+  scrape_interval:     5s # By default, scrape targets every 15 seconds.
+
+  # Attach these labels to any time series or alerts when communicating with
+  # external systems (federation, remote storage, Alertmanager).
+  external_labels:
+    monitor: 'railway-prom'
+
+# A scrape configuration containing exactly one endpoint to scrape:
+# Here it's Prometheus itself.
+scrape_configs:
+  - job_name: 'prometheus'
+    scrape_interval: 3s
+    static_configs:
+      - targets: ['localhost:9090']
+
+  - job_name: 'purchase_service'
+    scrape_interval: 3s
+    static_configs:
+      - targets: ['https://purchase-service-specialitystore.up.railway.app']
+
+  # - job_name: 'postgres'
+  #   scrape_interval: 5s
+  #   static_configs:
+  #     - targets: ['localhost:9187']
+
+  # - job_name: 'mysql'
+  #   scrape_interval: 5s
+  #   static_configs:
+  #     - targets: ['localhost:9104']
