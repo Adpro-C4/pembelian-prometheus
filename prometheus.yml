@@ -1,5 +1,5 @@
 global:
-  scrape_interval: 5s
+  scrape_interval: 15s
 
   external_labels:
     monitor: 'railway-prom'
@@ -11,9 +11,10 @@ scrape_configs:
       - targets: ['localhost:9090']
 
   - job_name: 'purchase_service'
-    scrape_interval: 3s
+    scrape_interval: 5s
+    metrics_path: '/actuator/prometheus'
     static_configs:
-      - targets: ['purchase-service-specialitystore.up.railway.app']
+      - targets: ['purchase-service-specialitystore.up.railway.app:443']
 
   # - job_name: 'postgres'
   #   scrape_interval: 5s
