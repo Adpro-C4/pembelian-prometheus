@@ -10,6 +10,7 @@ scrape_configs:
     static_configs:
       - targets: ['purchase-service-specialitystore.up.railway.app']
     metrics_path: '/actuator/prometheus'
+    scheme: 'https'
 
   # - job_name: 'postgres'
   #   scrape_interval: 5s
