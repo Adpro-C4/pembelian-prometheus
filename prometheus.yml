@@ -8,7 +8,7 @@ scrape_configs:
   - job_name: 'purchase_service'
     scrape_interval: 3s
     static_configs:
-      - targets: ['purchase-service-specialitystore.up.railway.app']
+      - targets: ['purchase-service-specialitystore.up.railway.app:443']
     metrics_path: '/actuator/prometheus'
     scheme: 'https'
 
